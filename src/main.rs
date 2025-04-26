@@ -366,20 +366,37 @@ fn short_log(log: &str) -> String {
             // we couldn't find a failure message but we truncate the output anyway
             // because otherwise it can be gigantic.
             short.push('\n');
-            let mut pos = log.len();
-            for _ in 0..50 {
-                pos = if let Some(pos) = log[..pos - 1].rfind("\n") {
-                    pos
-                } else {
-                    return log.into();
-                }
-            }
-            short.push_str(&log[pos..]);
+            let log = tail_lines(&log[short.len()..], 50);
+            short.push_str(log);
             short
         }
     } else {
-        log.into()
+        // limit the logs to some reasonable number of lines.
+        let short_log = tail_lines(log, 500);
+        if short_log.len() != log.len() {
+            if let Some(group) = group {
+                String::from(group) + short_log
+            } else {
+                short_log.into()
+            }
+        } else {
+            log.into()
+        }
     }
+}
+
+fn tail_lines(log: &str, lines: usize) -> &str {
+    let mut pos = log.len();
+    for _ in 0..lines {
+        if pos == 0 {
+            break;
+        } else if let Some(new_pos) = log[..pos - 1].rfind("\n") {
+            pos = new_pos + 1
+        } else {
+            pos = 0;
+        }
+    }
+    &log[pos..]
 }
 
 #[derive(serde::Serialize, serde::Deserialize)]
