@@ -471,10 +471,12 @@ fn make_html(fails: &Fails) -> String {
         r#"
         <script src="script.js"></script>
         <style>
-        .log { overflow: auto; }
+        .log { overflow: auto; border: 1px solid black; padding: 1em; background-color: #eee; }
         table { border-collapse: collapse; }
+        thead tr { border-bottom: 2px solid white; }
+        th { position: sticky; top: 0; background-color: white; }
         td { border: 2px solid white; padding: 5px; }
-        tr:nth-child(2n) { background: #ddd; }
+        tr:nth-child(even) { background: #eee; }
         </style>
         </html>
         "#,
