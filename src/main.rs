@@ -358,14 +358,11 @@ fn short_log(log: &str) -> String {
         // No point printing the full logs if the run was essentially cancelled by outside forces.
         log[pos..].into()
     } else if group.is_some_and(|g| g.starts_with("##[group]Building LLVM for ")) {
-        println!("llvm group found");
         let mut short = group.unwrap().to_string();
         if let Some(pos) = log.find("\nFAILED: ") {
-            println!("LLVM failure message found");
             short.push_str(&log[pos..]);
             short
         } else {
-            println!("shrinking LLVM logs...");
             // we couldn't find a failure message but we truncate the output anyway
             // because otherwise it can be gigantic.
             short.push('\n');
