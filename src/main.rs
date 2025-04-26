@@ -347,11 +347,39 @@ fn trim_log(log: &mut String) {
 }
 
 fn short_log(log: &str) -> String {
+    let group = if log.starts_with("##[group") {
+        log.lines().next()
+    } else {
+        None
+    };
     if let Some(pos) = log.find("\nfailures:\n") {
         log[pos..].into()
     } else if let Some(pos) = log.find("\n##[error]The runner has received a shutdown signal.") {
         // No point printing the full logs if the run was essentially cancelled by outside forces.
         log[pos..].into()
+    } else if group.is_some_and(|g| g.starts_with("##[group]Building LLVM for ")) {
+        println!("llvm group found");
+        let mut short = group.unwrap().to_string();
+        if let Some(pos) = log.find("\nFAILED: ") {
+            println!("LLVM failure message found");
+            short.push_str(&log[pos..]);
+            short
+        } else {
+            println!("shrinking LLVM logs...");
+            // we couldn't find a failure message but we truncate the output anyway
+            // because otherwise it can be gigantic.
+            short.push('\n');
+            let mut pos = log.len();
+            for _ in 0..50 {
+                pos = if let Some(pos) = log[..pos - 1].rfind("\n") {
+                    pos
+                } else {
+                    return log.into();
+                }
+            }
+            short.push_str(&log[pos..]);
+            short
+        }
     } else {
         log.into()
     }
@@ -407,14 +435,14 @@ fn make_html(fails: &Fails) -> String {
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>CI report</title>
+            <title>Rust CI report</title>
             <link rel="stylesheet" href="styles.css">
         </head>
         "#,
     );
     html.push_str(&format!(
         "
-        <h1>{start}..{end}</h1>
+        <h1>Rustc CI failures {start} to {end}</h1>
         <article id=\"stats\">
             <h2>Stats</h2>
             <p>fails: {fail}/{total} ({percent}%)</p>
@@ -441,6 +469,9 @@ fn make_html(fails: &Fails) -> String {
             short_log,
             pr_id,
         } = fail;
+        let mut short_log = short_log.replace("&", "&amp;");
+        short_log = short_log.replace("<", "&lt;");
+        short_log = short_log.replace(">", "&gt;");
         summary.push_str(&format!(
             "
             <tr>
