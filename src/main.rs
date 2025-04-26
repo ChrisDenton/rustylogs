@@ -260,6 +260,7 @@ fn main() -> ExitCode {
                 fails.fails.push(Fail {
                     title: title.clone(),
                     job_name: job.name,
+                    job_id: job.id,
                     url: job.html_url,
                     time: job.started_at,
                     //log,
@@ -358,6 +359,7 @@ struct Fail {
     title: String,
     time: String,
     job_name: String,
+    job_id: u64,
     url: String,
     //log: String,
     short_log: String,
@@ -412,12 +414,13 @@ fn make_html(fails: &Fails) -> String {
             title,
             time,
             job_name,
+            job_id,
             url,
             short_log,
         } = fail;
         html.push_str(&format!(
             "
-            <article class=\"failure\">
+            <article id=\"job-{job_id}\" class=\"failure\">
                 <h2><a href=\"{url}\">{title}</a></h2>
                 <p>{job_name}</p>
                 <p>{time}</p>
