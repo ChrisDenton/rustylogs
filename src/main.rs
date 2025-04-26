@@ -207,7 +207,7 @@ fn main() -> ExitCode {
                     fail!("no failed logs for workflow {id}");
                 }
                 match Command::new("tar")
-                    .args(["-xf", &run_logs_path, "-C", &extract_dir])
+                    .args(["-xf", &run_logs_path, "-C", extract_dir])
                     .arg(&to_extract)
                     .status()
                 {
@@ -297,7 +297,8 @@ fn trim_log(log: &mut String) {
     let mut strip_log = String::new();
     for line in log.lines() {
         let line = if let Some((head, tail)) = line.split_once(" ") {
-            if let Ok(_) = head.parse::<Timestamp>() {
+            // FIXME: Exactly specify the expected format
+            if head.parse::<Timestamp>().is_ok() {
                 tail
             } else {
                 line

@@ -61,7 +61,7 @@ impl GithubApi {
 
     pub fn run(&mut self) -> Result<String, GhError> {
         self.raw_output()
-            .and_then(|output| String::from_utf8(output).map_err(|e| GhError::Unicode(e)))
+            .and_then(|output| String::from_utf8(output).map_err(GhError::Unicode))
     }
 
     pub fn raw_output(&mut self) -> Result<Vec<u8>, GhError> {
@@ -82,7 +82,7 @@ impl GithubApi {
             cmd.args(["-H", header]);
         }
         for field in &self.fields {
-            cmd.args(["-f", &field]);
+            cmd.args(["-f", field]);
         }
         if self.all_pages {
             cmd.args(["--paginate", "--slurp"]);
