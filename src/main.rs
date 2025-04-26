@@ -257,6 +257,18 @@ fn main() -> ExitCode {
 
                 trim_log(&mut log);
                 let short_log = short_log(&log);
+                // Parse the PR id from the title
+                let pr_id: u64 = if let Some(text_id) = title
+                    .strip_prefix("Auto merge of #")
+                    .and_then(|s| s.split_once(" ").map(|s| s.0))
+                {
+                    match text_id.parse() {
+                        Ok(id) => id,
+                        Err(e) => fail!("PR id not found: {e}"),
+                    }
+                } else {
+                    fail!("PR id not found");
+                };
                 fails.fails.push(Fail {
                     title: title.clone(),
                     job_name: job.name,
@@ -265,6 +277,7 @@ fn main() -> ExitCode {
                     time: job.started_at,
                     //log,
                     short_log,
+                    pr_id,
                 });
             }
         }
@@ -363,6 +376,7 @@ struct Fail {
     url: String,
     //log: String,
     short_log: String,
+    pr_id: u64,
 }
 
 #[derive(Parser)]
@@ -406,9 +420,17 @@ fn make_html(fails: &Fails) -> String {
             <p>fails: {fail}/{total} ({percent}%)</p>
             <p>cancelled: {cancelled}</p>
         </article>
-        <section id = \"logs\">
         "
     ));
+    // TODO: create a summary table.
+    let mut summary = String::from(
+        "<section id = \"summary\">
+        <h2>Summary</h2>
+        <table><thead><tr><th>Time (UTC)</th><th>PR</th><th>Job Name</th><th>Short Log</th></tr></thead>
+        <tbody>
+        ",
+    );
+    let mut logs = String::from("<section id = \"logs\"><h2>Short logs</h2>");
     for fail in fails {
         let Fail {
             title,
@@ -417,11 +439,22 @@ fn make_html(fails: &Fails) -> String {
             job_id,
             url,
             short_log,
+            pr_id,
         } = fail;
-        html.push_str(&format!(
+        summary.push_str(&format!(
+            "
+            <tr>
+            <td>{time}</td>
+            <td><a href=\"https://github.com/rust-lang/rust/pull/{pr_id}\">#{pr_id}</a></td>
+            <td>{job_name}</td>
+            <td><a href=\"#job-{job_id}\">short log</a></td>
+            </tr>
+            ",
+        ));
+        logs.push_str(&format!(
             "
             <article id=\"job-{job_id}\" class=\"failure\">
-                <h2><a href=\"{url}\">{title}</a></h2>
+                <h3><a href=\"{url}\">{title}</a></h3>
                 <p>{job_name}</p>
                 <p>{time}</p>
                 <pre class=\"log\"><code>{short_log}</code></pre>
@@ -429,11 +462,20 @@ fn make_html(fails: &Fails) -> String {
             "
         ));
     }
+    summary.push_str("</tbody></table></section>");
+    logs.push_str("</section>");
+    html.push_str(&summary);
+    html.push_str(&logs);
+
     html.push_str(
         r#"
-        </section>
         <script src="script.js"></script>
-        <style>.log { overflow: auto; }</style>
+        <style>
+        .log { overflow: auto; }
+        table { border-collapse: collapse; }
+        td { border: 2px solid white; padding: 5px; }
+        tr:nth-child(2n) { background: #ddd; }
+        </style>
         </html>
         "#,
     );
