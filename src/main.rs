@@ -269,6 +269,7 @@ fn main() -> ExitCode {
                 } else {
                     fail!("PR id not found");
                 };
+                let error_line = error_line(&short_log).map(String::from);
                 fails.fails.push(Fail {
                     title: title.clone(),
                     job_name: job.name,
@@ -277,6 +278,7 @@ fn main() -> ExitCode {
                     time: job.started_at,
                     //log,
                     short_log,
+                    error_line,
                     pr_id,
                 });
             }
@@ -399,6 +401,15 @@ fn tail_lines(log: &str, lines: usize) -> &str {
     &log[pos..]
 }
 
+fn error_line(log: &str) -> Option<&str> {
+    for line in log.lines() {
+        if line.starts_with("error: ") {
+            return Some(line);
+        }
+    }
+    None
+}
+
 #[derive(serde::Serialize, serde::Deserialize)]
 struct Fails {
     start: String,
@@ -418,6 +429,7 @@ struct Fail {
     url: String,
     //log: String,
     short_log: String,
+    error_line: Option<String>,
     pr_id: u64,
 }
 
@@ -468,7 +480,7 @@ fn make_html(fails: &Fails) -> String {
     let mut summary = String::from(
         "<section id = \"summary\">
         <h2>Summary</h2>
-        <table><thead><tr><th>Time (UTC)</th><th>PR</th><th>Job Name</th><th>Short Log</th></tr></thead>
+        <table><thead><tr><th>Time (UTC)</th><th>PR</th><th>Job Name</th><th>Short Log</th><th>Error Message</th></tr></thead>
         <tbody>
         ",
     );
@@ -481,11 +493,13 @@ fn make_html(fails: &Fails) -> String {
             job_id,
             url,
             short_log,
+            error_line,
             pr_id,
         } = fail;
         let mut short_log = short_log.replace("&", "&amp;");
         short_log = short_log.replace("<", "&lt;");
         short_log = short_log.replace(">", "&gt;");
+        let error_line = error_line.as_deref().unwrap_or("");
         summary.push_str(&format!(
             "
             <tr>
@@ -493,6 +507,7 @@ fn make_html(fails: &Fails) -> String {
             <td><a href=\"https://github.com/rust-lang/rust/pull/{pr_id}\">#{pr_id}</a></td>
             <td>{job_name}</td>
             <td><a href=\"#job-{job_id}\">short log</a></td>
+            <td class=\"error_msg\"><pre><code>{error_line}</code></pre></td>
             </tr>
             ",
         ));
@@ -522,6 +537,8 @@ fn make_html(fails: &Fails) -> String {
         th { position: sticky; top: 0; background-color: white; }
         td { border: 2px solid white; padding: 5px; }
         tr:nth-child(even) { background: #eee; }
+        .error_msg { font-size: 12px; }
+        .error_msg pre { white-space: pre-wrap; word-wrap: break-word; }
         </style>
         </html>
         "#,
