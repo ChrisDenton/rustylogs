@@ -403,10 +403,50 @@ fn tail_lines(log: &str, lines: usize) -> &str {
 
 fn error_line(log: &str) -> Option<&str> {
     for line in log.lines() {
-        if line.starts_with("error: ") || line.starts_with("error[") {
-            return Some(line);
+        if line == "##[error]Process completed with exit code 1." {
+            // This is the "something went wrong" of errors.
+            continue;
+        } else if line.starts_with("error: ")
+            || line.starts_with("error[")
+            || line.starts_with("rustc exited with signal:")
+            || line.starts_with("##[error]")
+            || line.starts_with("TypeError:")
+            || line.starts_with("dyld[")
+        {
+            if !line.starts_with("error: test failed, to rerun") {
+                return Some(line);
+            }
         }
     }
+
+    // We didn't find any errors. Let's look for some lesser candidates.
+    let mut report_next = false;
+    let mut previous = "";
+    for line in log.lines() {
+        if report_next {
+            // Fixme: report both lines.
+            if line.trim().is_empty()
+                || line == "explicit panic"
+                || line == "assertion `left == right` failed"
+            {
+                return Some(previous);
+            } else {
+                return Some(line);
+            }
+        } else if line.starts_with("ERROR: ")
+            || line.starts_with("error in revision ")
+            || line.starts_with("fatal: ")
+        {
+            return Some(line);
+        } else if line.starts_with("thread '")
+            && line.contains("' panicked at ")
+            && line.ends_with(":")
+        {
+            previous = line;
+            report_next = true;
+        }
+    }
+
     None
 }
 
