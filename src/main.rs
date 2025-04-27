@@ -512,9 +512,7 @@ fn make_html(fails: &Fails) -> String {
         "
         <h1>Rustc CI failures {start} to {end}</h1>
         <article id=\"stats\">
-            <h2>Stats</h2>
-            <p>fails: {fail}/{total} ({percent}%)</p>
-            <p>cancelled: {cancelled}</p>
+            <p><strong>{fail}</strong> out of <strong>{total}</strong> runs failed ({percent}%) plus {cancelled} workflows were cancelled</p>
         </article>
         "
     ));
