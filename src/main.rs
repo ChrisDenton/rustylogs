@@ -583,6 +583,7 @@ fn make_html(fails: &Fails) -> String {
         .error_msg pre { white-space: pre-wrap; word-wrap: break-word; }
         #filter { display: flex; }
         #filter input[type=search] { flex-grow: 1; }
+        #summary { min-height: 100vh; }
         </style>
         <script>
         document.querySelector("#filter").addEventListener("submit", event => {
