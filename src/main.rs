@@ -413,7 +413,9 @@ fn error_line(log: &str) -> Option<&str> {
             || line.starts_with("TypeError:")
             || line.starts_with("dyld[")
         {
-            if !line.starts_with("error: test failed, to rerun") {
+            if !line.starts_with("error: test failed, to rerun")
+                && line != "error: rmake recipe failed to complete"
+            {
                 return Some(line);
             }
         }
