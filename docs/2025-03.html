@@ -38029,6 +38029,22 @@ Build completed unsuccessfully in 0:39:06
                 title.textContent = `Summary (showing ${count} results)`
             }
         });
+        document.querySelectorAll("#summary th").forEach(th => {
+            th.addEventListener("click", event => {
+                const tr = event.target;
+                const index = tr.cellIndex;
+                const order = tr.dataset.sortOrder == 1 ? -1 : 1;
+                tr.dataset.sortOrder = order;
+                data = [];
+                document.querySelectorAll("#summary tbody tr").forEach(tr => {
+                    const cells = tr.querySelectorAll("td");
+                    data.push([cells[index].textContent, tr]);
+                });
+                data.sort((a, b) => a[0].localeCompare(b[0]) * order);
+                const tbody = document.querySelector("#summary tbody");
+                data.forEach(elem => tbody.append(elem[1]));
+            });
+        });
         </script>
         </html>
         
