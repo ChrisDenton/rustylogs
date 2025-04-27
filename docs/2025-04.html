@@ -7,17 +7,89 @@
             <link rel="stylesheet" href="styles.css">
         </head>
         
-        <h1>Rustc CI failures 2025-04-01 to 2025-04-25</h1>
+        <h1>Rustc CI failures 2025-04-01 to 2025-04-27</h1>
         <article id="stats">
             <h2>Stats</h2>
-            <p>fails: 96/234 (41%)</p>
-            <p>cancelled: 6</p>
+            <p>fails: 105/250 (42%)</p>
+            <p>cancelled: 7</p>
         </article>
         <section id = "summary">
         <h2>Summary</h2>
         <table><thead><tr><th>Time (UTC)</th><th>PR</th><th>Job Name</th><th>Short Log</th><th>Error Message</th></tr></thead>
         <tbody>
         
+            <tr>
+            <td>2025-04-27T05:11:04Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140356">#140356</a></td>
+            <td>auto - x86_64-mingw-1</td>
+            <td><a href="#job-41220864700">log</a></td>
+            <td class="error_msg"><pre><code>error: rmake recipe failed to complete</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-27T01:47:11Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140355">#140355</a></td>
+            <td>auto - x86_64-gnu-distcheck</td>
+            <td><a href="#job-41217323803">log</a></td>
+            <td class="error_msg"><pre><code>cmd.exec() failed with `cargo metadata` exited with an error: error: failed to select a version for the requirement `r-efi = "^4.1.0"` (locked to 4.5.0)</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T22:17:43Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140350">#140350</a></td>
+            <td>auto - dist-aarch64-linux</td>
+            <td><a href="#job-41213824976">log</a></td>
+            <td class="error_msg"><pre><code>error[E0308]: mismatched types</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T14:12:12Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140269">#140269</a></td>
+            <td>auto - x86_64-mingw-1</td>
+            <td><a href="#job-41205886499">log</a></td>
+            <td class="error_msg"><pre><code>error: linking with `rust-lld` failed: exit code: 0xc0000374</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T13:11:42Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140335">#140335</a></td>
+            <td>auto - dist-various-2</td>
+            <td><a href="#job-41204871574">log</a></td>
+            <td class="error_msg"><pre><code>error: implicit autoref creates a reference to the dereference of a raw pointer</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T11:21:44Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140269">#140269</a></td>
+            <td>auto - x86_64-mingw-1</td>
+            <td><a href="#job-41203075942">log</a></td>
+            <td class="error_msg"><pre><code>error: couldn't create a temp dir: Access is denied. (os error 5) at path "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcUofZrm"</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T10:25:23Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140329">#140329</a></td>
+            <td>auto - test-various</td>
+            <td><a href="#job-41202217285">log</a></td>
+            <td class="error_msg"><pre><code>error[E0658]: inline assembly is not stable yet on this architecture</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T08:29:26Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140269">#140269</a></td>
+            <td>auto - i686-msvc-1</td>
+            <td><a href="#job-41200336371">log</a></td>
+            <td class="error_msg"><pre><code>error: couldn't create a temp dir: Access is denied. (os error 5) at path "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcsqlo2E"</code></pre></td>
+            </tr>
+            
+            <tr>
+            <td>2025-04-26T01:12:18Z</td>
+            <td><a href="https://github.com/rust-lang/rust/pull/140315">#140315</a></td>
+            <td>auto - x86_64-gnu-aux</td>
+            <td><a href="#job-41192621473">log</a></td>
+            <td class="error_msg"><pre><code>error: expected one of `async`, `|`, or `||`, found `diesel`</code></pre></td>
+            </tr>
+            
             <tr>
             <td>2025-04-25T04:08:38Z</td>
             <td><a href="https://github.com/rust-lang/rust/pull/140273">#140273</a></td>
@@ -786,6 +858,1054 @@
             <td class="error_msg"><pre><code>TypeError: __init__() got an unexpected keyword argument 'text'</code></pre></td>
             </tr>
             </tbody></table></section><section id = "logs"><h2>Short logs</h2>
+            <article id="job-41220864700" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14688679271/job/41220864700">Auto merge of #140356 - tgross35:rollup-cvqvrg4, r=tgross35</a></h3>
+                <p>auto - x86_64-mingw-1</p>
+                <p>2025-04-27T05:11:04Z</p>
+                <pre class="log"><code>
+failures:
+
+---- [run-make] tests\run-make\amdgpu-kd stdout ----
+
+error: rmake recipe failed to complete
+status: exit code: 1
+command: "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\run-make\\amdgpu-kd\\rmake.exe"
+stdout: none
+--- stderr -------------------------------
+command failed at line 18
+Command { cmd: "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2\\bin\\rustc.exe" "-L" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\run-make\\amdgpu-kd\\rmake_out" "--crate-name" "foo" "--target=amdgcn-amd-amdhsa" "-Ctarget-cpu=gfx900" "--crate-type" "cdylib" "foo.rs", stdin_buf: None, stdin: None, stdout: None, stderr: None, drop_bomb: DropBomb { command: "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2\\bin\\rustc.exe", defused: true, armed_location: Location { file: "D:\\a\\rust\\rust\\tests\\run-make\\amdgpu-kd\\rmake.rs", line: 12, col: 5 } }, already_executed: true }
+output status: `exit code: 1`
+=== STDOUT ===
+
+
+
+=== STDERR ===
+error: linking with `rust-lld` failed: exit code: 0xc0000374
+  |
+  = note: "rust-lld" "-flavor" "gnu" "--version-script=C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcCcaGpY\\list" "--no-undefined-version" "&lt;1 object files omitted&gt;" "--as-needed" "-L" "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcCcaGpY\\raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-L" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\run-make\\amdgpu-kd\\rmake_out" "-o" "foo.elf" "--gc-sections" "-shared"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: 
+
+error: aborting due to 1 previous error
+------------------------------------------
+
+
+
+failures:
+    [run-make] tests\run-make\amdgpu-kd
+
+test result: FAILED. 279 passed; 1 failed; 110 ignored; 0 measured; 6 filtered out; finished in 200.33s
+
+Some tests failed in compiletest suite=run-make mode=run-make host=x86_64-pc-windows-gnu target=x86_64-pc-windows-gnu
+Build completed unsuccessfully in 2:23:34
+make: *** [Makefile:124: ci-mingw-x] Error 1
+  local time: Sun Apr 27 07:41:49 CUT 2025
+  network time: Sun, 27 Apr 2025 07:41:49 GMT
+##[error]Process completed with exit code 2.
+</code></pre>
+            </article> 
+            
+            <article id="job-41217323803" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14687143366/job/41217323803">Auto merge of #140355 - tgross35:rollup-sean6my, r=tgross35</a></h3>
+                <p>auto - x86_64-gnu-distcheck</p>
+                <p>2025-04-27T01:47:11Z</p>
+                <pre class="log"><code>##[group]Building stage0 tool tidy (x86_64-unknown-linux-gnu)
+   Compiling proc-macro2 v1.0.94
+   Compiling unicode-ident v1.0.18
+   Compiling serde v1.0.219
+   Compiling memchr v2.7.4
+   Compiling crossbeam-utils v0.8.21
+   Compiling regex-syntax v0.8.5
+   Compiling thiserror v2.0.12
+   Compiling hashbrown v0.15.2
+[RUSTC-TIMING] unicode_ident test:false 0.059
+   Compiling serde_json v1.0.140
+[RUSTC-TIMING] build_script_build test:false 0.186
+   Compiling equivalent v1.0.2
+[RUSTC-TIMING] build_script_build test:false 0.261
+[RUSTC-TIMING] build_script_build test:false 0.262
+[RUSTC-TIMING] build_script_build test:false 0.277
+   Compiling camino v1.1.9
+[RUSTC-TIMING] build_script_build test:false 0.284
+   Compiling thiserror v1.0.69
+[RUSTC-TIMING] equivalent test:false 0.030
+   Compiling semver v1.0.26
+[RUSTC-TIMING] build_script_build test:false 0.250
+   Compiling aho-corasick v1.1.3
+[RUSTC-TIMING] build_script_build test:false 0.286
+[RUSTC-TIMING] build_script_build test:false 0.288
+   Compiling bstr v1.12.0
+   Compiling indexmap v2.9.0
+[RUSTC-TIMING] hashbrown test:false 0.667
+   Compiling quote v1.0.40
+[RUSTC-TIMING] proc_macro2 test:false 0.608
+   Compiling syn v2.0.100
+[RUSTC-TIMING] quote test:false 0.247
+   Compiling crossbeam-epoch v0.9.18
+[RUSTC-TIMING] crossbeam_utils test:false 0.820
+   Compiling itoa v1.0.15
+[RUSTC-TIMING] itoa test:false 0.085
+   Compiling log v0.4.27
+[RUSTC-TIMING] bstr test:false 0.764
+   Compiling ryu v1.0.20
+[RUSTC-TIMING] log test:false 0.193
+   Compiling same-file v1.0.6
+[RUSTC-TIMING] indexmap test:false 0.822
+   Compiling winnow v0.5.40
+[RUSTC-TIMING] crossbeam_epoch test:false 0.584
+   Compiling walkdir v2.5.0
+[RUSTC-TIMING] same_file test:false 0.144
+   Compiling crossbeam-deque v0.8.6
+[RUSTC-TIMING] memchr test:false 1.632
+   Compiling rustc-hash v2.1.1
+[RUSTC-TIMING] rustc_hash test:false 0.053
+   Compiling termcolor v1.4.1
+[RUSTC-TIMING] ryu test:false 0.333
+   Compiling similar v2.7.0
+[RUSTC-TIMING] crossbeam_deque test:false 0.163
+   Compiling miropt-test-tools v0.1.0 (/checkout/src/tools/miropt-test-tools)
+[RUSTC-TIMING] termcolor test:false 0.503
+   Compiling regex-automata v0.4.9
+[RUSTC-TIMING] miropt_test_tools test:false 0.649
+[RUSTC-TIMING] walkdir test:false 0.971
+[RUSTC-TIMING] syn test:false 2.279
+   Compiling serde_derive v1.0.219
+[RUSTC-TIMING] winnow test:false 2.156
+   Compiling thiserror-impl v1.0.69
+   Compiling thiserror-impl v2.0.12
+[RUSTC-TIMING] similar test:false 2.428
+[RUSTC-TIMING] thiserror_impl test:false 1.379
+[RUSTC-TIMING] thiserror test:false 0.042
+   Compiling globset v0.4.16
+[RUSTC-TIMING] thiserror_impl test:false 1.460
+[RUSTC-TIMING] thiserror test:false 0.043
+   Compiling ignore v0.4.23
+   Compiling fluent-syntax v0.11.1
+[RUSTC-TIMING] aho_corasick test:false 5.749
+   Compiling regex v1.11.1
+[RUSTC-TIMING] regex_syntax test:false 6.474
+[RUSTC-TIMING] fluent_syntax test:false 0.544
+[RUSTC-TIMING] serde_derive test:false 3.549
+[RUSTC-TIMING] regex test:false 1.524
+[RUSTC-TIMING] globset test:false 3.054
+[RUSTC-TIMING] ignore test:false 3.817
+   Compiling serde_spanned v0.6.8
+   Compiling toml_datetime v0.6.8
+   Compiling cargo-platform v0.1.9
+[RUSTC-TIMING] serde_spanned test:false 0.079
+   Compiling build_helper v0.1.0 (/checkout/src/build_helper)
+[RUSTC-TIMING] serde test:false 2.999
+   Compiling toml_edit v0.19.15
+[RUSTC-TIMING] regex_automata test:false 7.552
+[RUSTC-TIMING] toml_datetime test:false 0.311
+[RUSTC-TIMING] cargo_platform test:false 0.417
+[RUSTC-TIMING] camino test:false 0.473
+[RUSTC-TIMING] semver test:false 0.473
+   Compiling cargo_metadata v0.19.2
+[RUSTC-TIMING] build_helper test:false 0.857
+[RUSTC-TIMING] serde_json test:false 1.354
+   Compiling toml v0.7.8
+   Compiling tidy v0.1.0 (/checkout/src/tools/tidy)
+[RUSTC-TIMING] toml test:false 2.027
+[RUSTC-TIMING] toml_edit test:false 4.144
+[RUSTC-TIMING] cargo_metadata test:false 4.005
+[RUSTC-TIMING] tidy test:false 4.573
+[RUSTC-TIMING] rust_tidy test:false 2.030
+    Finished `release` profile [optimized] target(s) in 18.97s
+##[endgroup]
+[TIMING] core::build_steps::tool::ToolBuild { compiler: Compiler { stage: 0, host: x86_64-unknown-linux-gnu, forced_compiler: false }, target: x86_64-unknown-linux-gnu, tool: "tidy", path: "src/tools/tidy", mode: ToolBootstrap, source_type: InTree, extra_features: [], allow_features: "", cargo_args: [], artifact_kind: Binary } -- 18.992
+[TIMING] core::build_steps::tool::Tidy { compiler: Compiler { stage: 0, host: x86_64-unknown-linux-gnu, forced_compiler: false }, target: x86_64-unknown-linux-gnu } -- 0.000
+fmt check
+fmt: checked 5998 files
+tidy check
+
+thread 'deps (.)' panicked at src/tools/tidy/src/deps.rs:591:24:
+cmd.exec() failed with `cargo metadata` exited with an error: error: failed to select a version for the requirement `r-efi = "^4.1.0"` (locked to 4.5.0)
+candidate versions found which didn't match: 5.2.0
+location searched: directory source `/checkout/obj/build/tmp/distcheck/vendor` (which is replacing registry `crates-io`)
+required by package `uefi_qemu_test v0.0.0 (/checkout/src/ci/docker/host-x86_64/test-various/uefi_qemu_test)`
+perhaps a crate was updated and forgotten to be re-vendored?
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' panicked at src/tools/tidy/src/main.rs:61:49:
+called `Result::unwrap()` on an `Err` value: Any { .. }
+Command has failed. Rerun with -v to see more details.
+Build completed unsuccessfully in 0:01:11
+make: *** [Makefile:49: check] Error 1
+Command has failed. Rerun with -v to see more details.
+Build completed unsuccessfully in 0:07:11
+  local time: Sun Apr 27 01:57:44 UTC 2025
+  network time: Sun, 27 Apr 2025 01:57:44 GMT
+##[error]Process completed with exit code 1.
+</code></pre>
+            </article> 
+            
+            <article id="job-41213824976" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14685610065/job/41213824976">Auto merge of #140350 - jhpratt:rollup-fudxv6m, r=jhpratt</a></h3>
+                <p>auto - dist-aarch64-linux</p>
+                <p>2025-04-26T22:17:43Z</p>
+                <pre class="log"><code>##[group]Building compiler artifacts (stage0 -&gt; stage1, aarch64-unknown-linux-gnu)[RUSTC-TIMING] icu_locid_transform_data test:false 0.021
+   Compiling rand_xoshiro v0.7.0
+[RUSTC-TIMING] rand_chacha test:false 0.742
+   Compiling icu_list_data v1.5.1
+[RUSTC-TIMING] rustc_lexer test:false 0.328
+   Compiling ryu v1.0.20
+[RUSTC-TIMING] syn test:false 3.844
+   Compiling displaydoc v0.2.5
+[RUSTC-TIMING] build_script_build test:false 0.073
+   Compiling tracing-attributes v0.1.28
+[RUSTC-TIMING] miniz_oxide test:false 1.053
+   Compiling zerofrom-derive v0.1.6
+[RUSTC-TIMING] ryu test:false 0.176
+   Compiling yoke-derive v0.7.5
+[RUSTC-TIMING] rand_xoshiro test:false 0.386
+   Compiling zerovec-derive v0.10.3
+[RUSTC-TIMING] rand test:false 0.567
+   Compiling rustc_index_macros v0.0.0 (/checkout/compiler/rustc_index_macros)
+[RUSTC-TIMING] displaydoc test:false 0.436
+   Compiling tinystr v0.7.6
+[RUSTC-TIMING] tinystr test:false 0.091
+[RUSTC-TIMING] rustc_index_macros test:false 0.276
+   Compiling unic-langid-impl v0.9.5
+[RUSTC-TIMING] unic_langid_impl test:false 0.179
+   Compiling unic-langid-macros-impl v0.9.5
+[RUSTC-TIMING] ruzstd test:false 1.284
+   Compiling derive-where v1.2.7
+[RUSTC-TIMING] yoke_derive test:false 0.710
+   Compiling thiserror-impl v1.0.69
+[RUSTC-TIMING] tracing_attributes test:false 0.891
+   Compiling tracing v0.1.37
+[RUSTC-TIMING] zerovec_derive test:false 0.705
+   Compiling serde_derive v1.0.219
+[RUSTC-TIMING] zerofrom_derive test:false 0.909
+   Compiling zerofrom v0.1.6
+[RUSTC-TIMING] unic_langid_macros_impl test:false 0.280
+   Compiling yoke v0.7.5
+[RUSTC-TIMING] zerofrom test:false 0.059
+   Compiling icu_provider_macros v1.5.0
+[RUSTC-TIMING] yoke test:false 0.118
+[RUSTC-TIMING] tracing test:false 0.228
+   Compiling zerovec v0.10.4
+   Compiling unic-langid-macros v0.9.5
+[RUSTC-TIMING] unic_langid_macros test:false 0.039
+[RUSTC-TIMING] icu_provider_macros test:false 0.227
+   Compiling unic-langid v0.9.5
+[RUSTC-TIMING] unic_langid test:false 0.019
+   Compiling itertools v0.12.1
+[RUSTC-TIMING] derive_where test:false 0.883
+[RUSTC-TIMING] thiserror_impl test:false 0.870
+[RUSTC-TIMING] thiserror test:false 0.038
+[RUSTC-TIMING] icu_list_data test:false 0.062
+   Compiling rustc_fs_util v0.0.0 (/checkout/compiler/rustc_fs_util)
+   Compiling type-map v0.5.0
+[RUSTC-TIMING] rustc_fs_util test:false 0.122
+[RUSTC-TIMING] rustc_macros test:false 1.453
+   Compiling rustc_index v0.0.0 (/checkout/compiler/rustc_index)
+[RUSTC-TIMING] type_map test:false 0.232
+   Compiling regex-automata v0.2.0
+[RUSTC-TIMING] tinystr test:false 0.122
+[RUSTC-TIMING] zerovec test:false 1.022
+[RUSTC-TIMING] unic_langid_macros test:false 0.024
+   Compiling icu_locid v1.5.0
+[RUSTC-TIMING] rustc_index test:false 0.352
+   Compiling rustc_data_structures v0.0.0 (/checkout/compiler/rustc_data_structures)
+[RUSTC-TIMING] wasmparser test:false 3.287
+[RUSTC-TIMING] unic_langid test:false 0.022
+[RUSTC-TIMING] rustc_hash test:false 0.043
+   Compiling ident_case v1.0.1
+[RUSTC-TIMING] ident_case test:false 0.059
+   Compiling strsim v0.11.1
+[RUSTC-TIMING] itertools test:false 1.279
+   Compiling self_cell v1.2.0
+[RUSTC-TIMING] self_cell test:false 0.040
+   Compiling fnv v1.0.7
+[RUSTC-TIMING] fnv test:false 0.024
+   Compiling self_cell v0.10.3
+[RUSTC-TIMING] self_cell test:false 0.020
+   Compiling icu_provider v1.5.0
+[RUSTC-TIMING] strsim test:false 0.199
+   Compiling darling_core v0.20.11
+[RUSTC-TIMING] unic_langid_impl test:false 0.752
+[RUSTC-TIMING] regex_automata test:false 0.785
+   Compiling fluent-langneg v0.13.0
+[RUSTC-TIMING] type_map test:false 0.101
+   Compiling intl_pluralrules v7.0.2
+[RUSTC-TIMING] fluent_langneg test:false 0.223
+   Compiling icu_locid_transform v1.5.0
+[RUSTC-TIMING] serde_derive test:false 2.095
+[RUSTC-TIMING] icu_provider test:false 0.638
+   Compiling intl-memoizer v0.5.2
+[RUSTC-TIMING] intl_pluralrules test:false 0.520
+[RUSTC-TIMING] thiserror test:false 0.028
+   Compiling fluent-syntax v0.11.1
+[RUSTC-TIMING] intl_memoizer test:false 0.230
+   Compiling odht v0.3.1
+[RUSTC-TIMING] odht test:false 0.182
+   Compiling rustc_span v0.0.0 (/checkout/compiler/rustc_span)
+[RUSTC-TIMING] fluent_syntax test:false 0.332
+   Compiling rustc_ast_ir v0.0.0 (/checkout/compiler/rustc_ast_ir)
+[RUSTC-TIMING] rustc_ast_ir test:false 0.061
+   Compiling icu_list v1.5.0
+[RUSTC-TIMING] icu_locid test:false 1.961
+[RUSTC-TIMING] self_cell test:false 0.030
+[RUSTC-TIMING] self_cell test:false 0.025
+   Compiling fluent-bundle v0.15.3
+[RUSTC-TIMING] rustc_data_structures test:false 1.979
+   Compiling icu_provider_adapters v1.5.0
+[RUSTC-TIMING] icu_provider_adapters test:false 0.122
+[RUSTC-TIMING] darling_core test:false 1.795
+   Compiling darling_macro v0.20.11
+[RUSTC-TIMING] fluent_syntax test:false 0.223
+   Compiling rustc_baked_icu_data v0.0.0 (/checkout/compiler/rustc_baked_icu_data)
+[RUSTC-TIMING] icu_locid_transform test:false 1.674
+[RUSTC-TIMING] darling_macro test:false 0.178
+[RUSTC-TIMING] intl_memoizer test:false 0.086
+[RUSTC-TIMING] icu_list test:false 1.006
+   Compiling rustc_type_ir_macros v0.0.0 (/checkout/compiler/rustc_type_ir_macros)
+[RUSTC-TIMING] fluent_langneg test:false 0.081
+[RUSTC-TIMING] rustc_baked_icu_data test:false 0.229
+   Compiling anstyle v1.0.10
+[RUSTC-TIMING] smallvec test:false 0.115
+[RUSTC-TIMING] intl_pluralrules test:false 0.296
+   Compiling rustc_abi v0.0.0 (/checkout/compiler/rustc_abi)
+[RUSTC-TIMING] anstyle test:false 0.114
+   Compiling rustc_ast v0.0.0 (/checkout/compiler/rustc_ast)
+[RUSTC-TIMING] serde test:false 2.014
+[RUSTC-TIMING] unicode_width test:false 0.122
+   Compiling annotate-snippets v0.11.5
+[RUSTC-TIMING] rustc_type_ir_macros test:false 0.324
+   Compiling rustc_type_ir v0.0.0 (/checkout/compiler/rustc_type_ir)
+[RUSTC-TIMING] fluent_bundle test:false 1.310
+   Compiling rustc_error_messages v0.0.0 (/checkout/compiler/rustc_error_messages)
+[RUSTC-TIMING] annotate_snippets test:false 0.498
+[RUSTC-TIMING] rustc_abi test:false 0.929
+   Compiling rustc_target v0.0.0 (/checkout/compiler/rustc_target)
+[RUSTC-TIMING] fluent_bundle test:false 0.416
+   Compiling darling v0.20.11
+[RUSTC-TIMING] darling test:false 0.020
+[RUSTC-TIMING] anstyle test:false 0.143
+[RUSTC-TIMING] serde_json test:false 1.722
+   Compiling derive_setters v0.1.6
+[RUSTC-TIMING] derive_setters test:false 0.299
+   Compiling rustc_ast_pretty v0.0.0 (/checkout/compiler/rustc_ast_pretty)
+[RUSTC-TIMING] object test:false 5.966
+   Compiling rustc_fluent_macro v0.0.0 (/checkout/compiler/rustc_fluent_macro)
+[RUSTC-TIMING] rustc_error_messages test:false 1.816
+   Compiling termize v0.1.1
+[RUSTC-TIMING] termize test:false 0.039
+   Compiling termcolor v1.4.1
+[RUSTC-TIMING] rustc_fluent_macro test:false 0.325
+   Compiling unicode-width v0.1.14
+[RUSTC-TIMING] unicode_width test:false 0.140
+   Compiling rustc_attr_data_structures v0.0.0 (/checkout/compiler/rustc_attr_data_structures)
+[RUSTC-TIMING] termcolor test:false 0.292
+   Compiling rustc_error_codes v0.0.0 (/checkout/compiler/rustc_error_codes)
+[RUSTC-TIMING] rustc_error_codes test:false 0.028
+   Compiling getopts v0.2.21
+[RUSTC-TIMING] rustc_type_ir test:false 2.540
+   Compiling rustc_feature v0.0.0 (/checkout/compiler/rustc_feature)
+[RUSTC-TIMING] rustc_attr_data_structures test:false 0.328
+   Compiling rustc_apfloat v0.2.2+llvm-462a31f5a5ab
+[RUSTC-TIMING] annotate_snippets test:false 1.766
+   Compiling datafrog v2.0.1
+[RUSTC-TIMING] build_script_build test:false 0.096
+[RUSTC-TIMING] rustc_span test:false 4.406
+   Compiling gsgdt v0.1.2
+[RUSTC-TIMING] datafrog test:false 0.209
+   Compiling polonius-engine v0.13.0
+[RUSTC-TIMING] getopts test:false 0.658
+   Compiling rustc_parse_format v0.0.0 (/checkout/compiler/rustc_parse_format)
+[RUSTC-TIMING] rustc_apfloat test:false 0.437
+   Compiling tinyvec_macros v0.1.1
+[RUSTC-TIMING] tinyvec_macros test:false 0.017
+   Compiling tinyvec v1.9.0
+[RUSTC-TIMING] polonius_engine test:false 0.334
+   Compiling rustc_next_trait_solver v0.0.0 (/checkout/compiler/rustc_next_trait_solver)
+[RUSTC-TIMING] rustc_feature test:false 1.341
+[RUSTC-TIMING] rustc_parse_format test:false 0.687
+   Compiling rustc_hir v0.0.0 (/checkout/compiler/rustc_hir)
+[RUSTC-TIMING] rustc_ast_pretty test:false 2.058
+   Compiling aho-corasick v1.1.3
+   Compiling regex-syntax v0.8.5
+[RUSTC-TIMING] tinyvec test:false 0.591
+   Compiling unicode-normalization v0.1.24
+[RUSTC-TIMING] gsgdt test:false 1.344
+   Compiling unicode-script v0.5.7
+[RUSTC-TIMING] unicode_normalization test:false 0.397
+   Compiling libloading v0.8.6
+[RUSTC-TIMING] libloading test:false 0.123
+   Compiling fallible-iterator v0.3.0
+[RUSTC-TIMING] unicode_script test:false 0.373
+   Compiling unicode-security v0.1.2
+[RUSTC-TIMING] rustc_ast test:false 4.842
+   Compiling rustc-demangle v0.1.24
+[RUSTC-TIMING] fallible_iterator test:false 0.261
+   Compiling regex-syntax v0.6.29
+[RUSTC-TIMING] rustc_next_trait_solver test:false 1.551
+   Compiling punycode v0.4.1
+[RUSTC-TIMING] unicode_security test:false 0.465
+   Compiling gimli v0.31.1
+[RUSTC-TIMING] punycode test:false 0.204
+   Compiling rustc_llvm v0.0.0 (/checkout/compiler/rustc_llvm)
+[RUSTC-TIMING] build_script_build test:false 0.174
+   Compiling rustc_lint_defs v0.0.0 (/checkout/compiler/rustc_lint_defs)
+[RUSTC-TIMING] rustc_demangle test:false 0.671
+   Compiling rustc_hir_pretty v0.0.0 (/checkout/compiler/rustc_hir_pretty)
+[RUSTC-TIMING] rustc_lint_defs test:false 0.486
+   Compiling rustc_errors v0.0.0 (/checkout/compiler/rustc_errors)
+[RUSTC-TIMING] rustc_hir_pretty test:false 1.238
+   Compiling regex-automata v0.4.9
+[RUSTC-TIMING] aho_corasick test:false 2.825
+   Compiling regex-automata v0.1.10
+[RUSTC-TIMING] rustc_hir test:false 2.904
+   Compiling overload v0.1.1
+[RUSTC-TIMING] overload test:false 0.032
+   Compiling lazy_static v1.5.0
+[RUSTC-TIMING] lazy_static test:false 0.035
+[RUSTC-TIMING] shlex test:false 0.192
+   Compiling pulldown-cmark v0.11.3
+[RUSTC-TIMING] build_script_build test:false 0.062
+   Compiling cfg_aliases v0.2.1
+[RUSTC-TIMING] cfg_aliases test:false 0.018
+   Compiling leb128 v0.2.5
+[RUSTC-TIMING] leb128 test:false 0.047
+   Compiling wasm-encoder v0.219.2
+[RUSTC-TIMING] regex_syntax test:false 4.767
+   Compiling rustc_session v0.0.0 (/checkout/compiler/rustc_session)
+[RUSTC-TIMING] wasm_encoder test:false 1.485
+   Compiling thorin-dwp v0.9.0
+[RUSTC-TIMING] gimli test:false 3.924
+   Compiling regex v1.11.1
+[RUSTC-TIMING] regex_syntax test:false 4.391
+   Compiling bstr v1.12.0
+[RUSTC-TIMING] regex_automata test:false 2.490
+   Compiling matchers v0.1.0
+[RUSTC-TIMING] matchers test:false 0.068
+   Compiling nix v0.29.0
+[RUSTC-TIMING] build_script_build test:false 0.195
+[RUSTC-TIMING] regex test:false 0.849
+   Compiling sharded-slab v0.1.7
+[RUSTC-TIMING] thorin test:false 1.409
+   Compiling nu-ansi-term v0.46.0
+[RUSTC-TIMING] sharded_slab test:false 0.526
+   Compiling rustc_query_system v0.0.0 (/checkout/compiler/rustc_query_system)
+[RUSTC-TIMING] nu_ansi_term test:false 0.318
+   Compiling rustc_attr_parsing v0.0.0 (/checkout/compiler/rustc_attr_parsing)
+[RUSTC-TIMING] bstr test:false 1.607
+   Compiling rustc_parse v0.0.0 (/checkout/compiler/rustc_parse)
+[RUSTC-TIMING] rustc_query_system test:false 1.680
+   Compiling rustc_middle v0.0.0 (/checkout/compiler/rustc_middle)
+[RUSTC-TIMING] cc test:false 3.392
+[RUSTC-TIMING] rustc_attr_parsing test:false 3.267
+   Compiling ar_archive_writer v0.4.2
+[RUSTC-TIMING] regex_automata test:false 8.437
+   Compiling thread_local v1.1.8
+[RUSTC-TIMING] thread_local test:false 0.179
+   Compiling pulldown-cmark-escape v0.11.0
+[RUSTC-TIMING] pulldown_cmark_escape test:false 0.048
+   Compiling unicase v2.8.1
+[RUSTC-TIMING] ar_archive_writer test:false 1.615
+   Compiling pathdiff v0.2.3
+[RUSTC-TIMING] pathdiff test:false 0.034
+[RUSTC-TIMING] unicase test:false 0.140
+   Compiling tracing-subscriber v0.3.18
+[RUSTC-TIMING] rustc_errors test:false 12.067
+   Compiling rustc_ast_passes v0.0.0 (/checkout/compiler/rustc_ast_passes)
+[RUSTC-TIMING] pulldown_cmark test:false 3.138
+   Compiling tracing-log v0.2.0
+[RUSTC-TIMING] tracing_log test:false 0.327
+   Compiling rustc_expand v0.0.0 (/checkout/compiler/rustc_expand)
+[RUSTC-TIMING] tracing_subscriber test:false 4.277
+   Compiling nu-ansi-term v0.50.1
+[RUSTC-TIMING] rustc_session test:false 11.433
+   Compiling tracing-tree v0.3.1
+[RUSTC-TIMING] nu_ansi_term test:false 0.383
+[RUSTC-TIMING] tracing_tree test:false 0.383
+   Compiling tikv-jemalloc-sys v0.6.0+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7
+[RUSTC-TIMING] build_script_build test:false 0.172
+[RUSTC-TIMING] nix test:false 1.501
+   Compiling rustc_builtin_macros v0.0.0 (/checkout/compiler/rustc_builtin_macros)
+[RUSTC-TIMING] rustc_ast_passes test:false 4.301
+   Compiling ctrlc v3.4.6
+[RUSTC-TIMING] ctrlc test:false 0.082
+   Compiling rustc_log v0.0.0 (/checkout/compiler/rustc_log)
+[RUSTC-TIMING] rustc_target test:false 22.770
+   Compiling jiff v0.2.6
+[RUSTC-TIMING] rustc_log test:false 1.881
+   Compiling rustc-main v0.0.0 (/checkout/compiler/rustc)
+[RUSTC-TIMING] build_script_build test:false 0.088
+   Compiling rustc_transmute v0.0.0 (/checkout/compiler/rustc_transmute)
+[RUSTC-TIMING] jiff test:false 11.939
+   Compiling rustc_infer v0.0.0 (/checkout/compiler/rustc_infer)
+[RUSTC-TIMING] rustc_transmute test:false 5.422
+   Compiling rustc_symbol_mangling v0.0.0 (/checkout/compiler/rustc_symbol_mangling)
+   Compiling rustc_metadata v0.0.0 (/checkout/compiler/rustc_metadata)
+   Compiling rustc_trait_selection v0.0.0 (/checkout/compiler/rustc_trait_selection)
+[RUSTC-TIMING] rustc_symbol_mangling test:false 6.255
+   Compiling rustc_mir_dataflow v0.0.0 (/checkout/compiler/rustc_mir_dataflow)
+[RUSTC-TIMING] rustc_expand test:false 26.693
+   Compiling rustc_pattern_analysis v0.0.0 (/checkout/compiler/rustc_pattern_analysis)
+[RUSTC-TIMING] rustc_builtin_macros test:false 24.056
+   Compiling rustc_incremental v0.0.0 (/checkout/compiler/rustc_incremental)
+[RUSTC-TIMING] rustc_parse test:false 35.879
+[RUSTC-TIMING] rustc_llvm test:false 0.101
+   Compiling rustc_ast_lowering v0.0.0 (/checkout/compiler/rustc_ast_lowering)
+[RUSTC-TIMING] rustc_pattern_analysis test:false 5.449
+   Compiling rustc_resolve v0.0.0 (/checkout/compiler/rustc_resolve)
+[RUSTC-TIMING] rustc_mir_dataflow test:false 7.499
+   Compiling rustc_monomorphize v0.0.0 (/checkout/compiler/rustc_monomorphize)
+[RUSTC-TIMING] rustc_infer test:false 17.828
+   Compiling rustc_query_impl v0.0.0 (/checkout/compiler/rustc_query_impl)
+[RUSTC-TIMING] rustc_incremental test:false 7.801
+   Compiling rustc_smir v0.0.0 (/checkout/compiler/rustc_smir)
+[RUSTC-TIMING] rustc_monomorphize test:false 8.518
+   Compiling stable_mir v0.1.0-preview (/checkout/compiler/stable_mir)
+[RUSTC-TIMING] stable_mir test:false 0.032
+[RUSTC-TIMING] tikv_jemalloc_sys test:false 0.034
+   Compiling rustc_lint v0.0.0 (/checkout/compiler/rustc_lint)
+[RUSTC-TIMING] rustc_ast_lowering test:false 15.190
+   Compiling rustc_ty_utils v0.0.0 (/checkout/compiler/rustc_ty_utils)
+[RUSTC-TIMING] rustc_smir test:false 12.939
+   Compiling rustc_mir_build v0.0.0 (/checkout/compiler/rustc_mir_build)
+[RUSTC-TIMING] rustc_middle test:false 58.169
+   Compiling rustc_privacy v0.0.0 (/checkout/compiler/rustc_privacy)
+[RUSTC-TIMING] rustc_metadata test:false 33.339
+   Compiling rustc_hir_analysis v0.0.0 (/checkout/compiler/rustc_hir_analysis)
+[RUSTC-TIMING] rustc_privacy test:false 3.842
+   Compiling rustc_sanitizers v0.0.0 (/checkout/compiler/rustc_sanitizers)
+[RUSTC-TIMING] rustc_ty_utils test:false 14.490
+   Compiling rustc_codegen_ssa v0.0.0 (/checkout/compiler/rustc_codegen_ssa)
+[RUSTC-TIMING] rustc_sanitizers test:false 3.228
+   Compiling rustc_traits v0.0.0 (/checkout/compiler/rustc_traits)
+[RUSTC-TIMING] rustc_mir_build test:false 20.385
+   Compiling rustc_const_eval v0.0.0 (/checkout/compiler/rustc_const_eval)
+[RUSTC-TIMING] rustc_resolve test:false 35.786
+   Compiling rustc_codegen_llvm v0.0.0 (/checkout/compiler/rustc_codegen_llvm)
+error[E0308]: mismatched types
+   --&gt; compiler/rustc_codegen_llvm/src/back/lto.rs:677:54
+    |
+677 |             if attributes::has_string_attr(function, marker_ptr) {
+    |                ---------------------------           ^^^^^^^^^^ expected `*const i8`, found `*const u8`
+    |                |
+    |                arguments to this function are incorrect
+    |
+    = note: expected raw pointer `*const i8`
+               found raw pointer `*const u8`
+note: function defined here
+   --&gt; compiler/rustc_codegen_llvm/src/attributes.rs:35:15
+    |
+35  | pub(crate) fn has_string_attr(llfn: &amp;Value, name: *const i8) -&gt; bool {
+    |               ^^^^^^^^^^^^^^^               ---------------
+
+error[E0308]: mismatched types
+   --&gt; compiler/rustc_codegen_llvm/src/back/lto.rs:685:68
+    |
+685 |                 attributes::remove_string_attr_from_llfn(function, marker_ptr);
+    |                 ----------------------------------------           ^^^^^^^^^^ expected `*const i8`, found `*const u8`
+    |                 |
+    |                 arguments to this function are incorrect
+    |
+    = note: expected raw pointer `*const i8`
+               found raw pointer `*const u8`
+note: function defined here
+   --&gt; compiler/rustc_codegen_llvm/src/attributes.rs:43:15
+    |
+43  | pub(crate) fn remove_string_attr_from_llfn(llfn: &amp;Value, name: *const i8) {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^               ---------------
+
+error[E0308]: mismatched types
+   --&gt; compiler/rustc_codegen_llvm/src/back/lto.rs:688:60
+    |
+688 |                     !attributes::has_string_attr(function, marker_ptr),
+    |                      ---------------------------           ^^^^^^^^^^ expected `*const i8`, found `*const u8`
+    |                      |
+    |                      arguments to this function are incorrect
+    |
+    = note: expected raw pointer `*const i8`
+               found raw pointer `*const u8`
+note: function defined here
+   --&gt; compiler/rustc_codegen_llvm/src/attributes.rs:35:15
+    |
+35  | pub(crate) fn has_string_attr(llfn: &amp;Value, name: *const i8) -&gt; bool {
+    |               ^^^^^^^^^^^^^^^               ---------------
+
+error[E0308]: mismatched types
+  --&gt; compiler/rustc_codegen_llvm/src/llvm/mod.rs:53:43
+   |
+53 |     unsafe { LLVMRustHasFnAttribute(llfn, name) }
+   |              ----------------------       ^^^^ expected `*const u8`, found `*const i8`
+   |              |
+   |              arguments to this function are incorrect
+   |
+   = note: expected raw pointer `*const u8`
+              found raw pointer `*const i8`
+note: function defined here
+  --&gt; compiler/rustc_codegen_llvm/src/llvm/enzyme_ffi.rs:22:19
+   |
+22 |     pub(crate) fn LLVMRustHasFnAttribute(F: &amp;Value, Name: *const c_char) -&gt; bool;
+   |                   ^^^^^^^^^^^^^^^^^^^^^^            ----
+
+error[E0308]: mismatched types
+  --&gt; compiler/rustc_codegen_llvm/src/llvm/mod.rs:57:46
+   |
+57 |     unsafe { LLVMRustRemoveFnAttribute(llfn, name) }
+   |              -------------------------       ^^^^ expected `*const u8`, found `*const i8`
+   |              |
+   |              arguments to this function are incorrect
+   |
+   = note: expected raw pointer `*const u8`
+              found raw pointer `*const i8`
+note: function defined here
+  --&gt; compiler/rustc_codegen_llvm/src/llvm/enzyme_ffi.rs:23:19
+   |
+23 |     pub(crate) fn LLVMRustRemoveFnAttribute(F: &amp;Value, Name: *const c_char);
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^            ----
+
+For more information about this error, try `rustc --explain E0308`.
+[RUSTC-TIMING] rustc_codegen_llvm test:false 2.422
+error: could not compile `rustc_codegen_llvm` (lib) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+[RUSTC-TIMING] rustc_traits test:false 15.570
+[RUSTC-TIMING] rustc_lint test:false 31.621
+[RUSTC-TIMING] rustc_codegen_ssa test:false 28.105
+[RUSTC-TIMING] rustc_const_eval test:false 26.517
+[RUSTC-TIMING] rustc_trait_selection test:false 74.926
+[RUSTC-TIMING] rustc_hir_analysis test:false 63.331
+[RUSTC-TIMING] rustc_query_impl test:false 93.574
+Build completed unsuccessfully in 0:05:53
+[2025-04-26T22:31:57.423Z INFO  opt_dist::timer] Section `Stage 1 (Rustc PGO) &gt; Build PGO instrumented rustc and LLVM` ended: FAIL (353.76s)`
+[2025-04-26T22:31:57.423Z INFO  opt_dist::timer] Section `Stage 1 (Rustc PGO)` ended: FAIL (353.76s)`
+[2025-04-26T22:31:57.423Z INFO  opt_dist] Timer results
+    -----------------------------------------------------------------
+    Stage 1 (Rustc PGO):                             353.76s (100.00%)
+      Build PGO instrumented rustc and LLVM:         353.76s (100.00%)
+    
+    Total duration:                                            5m 53s
+    -----------------------------------------------------------------
+    
+[2025-04-26T22:31:57.423Z INFO  opt_dist::utils] Free disk space: 3.41 TiB out of total 3.74 TiB (8.80% used)
+Error: Optimized build pipeline has failed
+
+Caused by:
+    Command RUST_BACKTRACE=full python3 /checkout/x.py build --target aarch64-unknown-linux-gnu --host aarch64-unknown-linux-gnu --stage 2 library/std --rust-profile-generate /tmp/tmp-multistage/opt-artifacts/rustc-pgo --set llvm.thin-lto=false --set llvm.link-shared=true [at /checkout/obj] has failed with exit code Some(1)
+
+Stack backtrace:
+   0: std::backtrace_rs::backtrace::libunwind::trace
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/../../backtrace/src/backtrace/libunwind.rs:117:9
+   1: std::backtrace_rs::backtrace::trace_unsynchronized
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/../../backtrace/src/backtrace/mod.rs:66:14
+   2: std::backtrace::Backtrace::create
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/backtrace.rs:331:13
+   3: &lt;anyhow::Error&gt;::msg::&lt;alloc::string::String&gt;
+             at /rust/deps/anyhow-1.0.97/src/backtrace.rs:27:14
+   4: &lt;opt_dist::exec::CmdBuilder&gt;::run
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/exec.rs:80:17
+   5: &lt;opt_dist::exec::Bootstrap&gt;::run
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/exec.rs:181:9
+   6: opt_dist::execute_pipeline::{closure#1}::{closure#0}
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/main.rs:230:13
+   7: &lt;opt_dist::timer::TimerSection&gt;::section::&lt;opt_dist::execute_pipeline::{closure#1}::{closure#0}, ()&gt;
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/timer.rs:111:22
+   8: opt_dist::execute_pipeline::{closure#1}
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/main.rs:219:9
+   9: &lt;opt_dist::timer::TimerSection&gt;::section::&lt;opt_dist::execute_pipeline::{closure#1}, opt_dist::training::RustcPGOProfile&gt;
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/timer.rs:111:22
+  10: opt_dist::execute_pipeline
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/main.rs:216:29
+  11: opt_dist::main
+             at /rustc/ad2aaa8c61cabdf2f967b54c5057d8b9d20268e3/src/tools/opt-dist/src/main.rs:416:18
+  12: &lt;fn() -&gt; core::result::Result&lt;(), anyhow::Error&gt; as core::ops::function::FnOnce&lt;()&gt;&gt;::call_once
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/core/src/ops/function.rs:250:5
+  13: std::sys::backtrace::__rust_begin_short_backtrace::&lt;fn() -&gt; core::result::Result&lt;(), anyhow::Error&gt;, core::result::Result&lt;(), anyhow::Error&gt;&gt;
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/sys/backtrace.rs:152:18
+  14: std::rt::lang_start::&lt;core::result::Result&lt;(), anyhow::Error&gt;&gt;::{closure#0}
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/rt.rs:199:18
+  15: core::ops::function::impls::&lt;impl core::ops::function::FnOnce&lt;A&gt; for &amp;F&gt;::call_once
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panicking.rs:589:40
+  17: std::panicking::try
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panicking.rs:552:19
+  18: std::panic::catch_unwind
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panic.rs:359:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/rt.rs:168:24
+  20: std::panicking::try::do_call
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panicking.rs:589:40
+  21: std::panicking::try
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panicking.rs:552:19
+  22: std::panic::catch_unwind
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/panic.rs:359:14
+  23: std::rt::lang_start_internal
+             at /rustc/45165c82a4c5315ff52c391ad138f41ff40b52d8/library/std/src/rt.rs:164:5
+  24: main
+  25: __libc_start_main
+  26: &lt;unknown&gt;
+  local time: Sat Apr 26 22:31:57 UTC 2025
+  network time: Sat, 26 Apr 2025 22:31:57 GMT
+##[error]Process completed with exit code 1.
+</code></pre>
+            </article> 
+            
+            <article id="job-41205886499" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14682012235/job/41205886499">Auto merge of #140269 - cuviper:beta-next, r=cuviper</a></h3>
+                <p>auto - x86_64-mingw-1</p>
+                <p>2025-04-26T14:12:12Z</p>
+                <pre class="log"><code>
+failures:
+
+---- [ui] tests\ui\amdgpu-require-explicit-cpu.rs#cpu stdout ----
+
+error in revision `cpu`: test compilation failed although it shouldn't!
+status: exit code: 1
+command: PATH="D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage2\bin;D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage0-bootstrap-tools\x86_64-pc-windows-gnu\release\deps;D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage0\bin;D:\a\rust\rust\ninja;D:\a\rust\rust\mingw64\bin;C:\msys64\usr\bin;D:\a\rust\rust\sccache;C:\Program Files\MongoDB\Server\5.0\bin;C:\aliyun-cli;C:\vcpkg;C:\Program Files (x86)\NSIS;C:\tools\zstd;C:\Program Files\Mercurial;C:\hostedtoolcache\windows\stack\3.5.1\x64;C:\cabal\bin;C:\ghcup\bin;C:\mingw64\bin;C:\Program Files\dotnet;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\R\R-4.4.2\bin\x64;C:\SeleniumWebDrivers\GeckoDriver;C:\SeleniumWebDrivers\EdgeDriver;C:\SeleniumWebDrivers\ChromeDriver;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\GitHub CLI;C:\Program Files\Git\bin;C:\Program Files (x86)\pipx_bin;C:\npm\prefix;C:\hostedtoolcache\windows\go\1.21.13\x64\bin;C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts;C:\hostedtoolcache\windows\Python\3.9.13\x64;C:\hostedtoolcache\windows\Ruby\3.0.7\x64\bin;C:\Program Files\OpenSSL\bin;C:\tools\kotlinc\bin;C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.452-9\x64\bin;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\kind;C:\ProgramData\Chocolatey\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\PowerShell\7;C:\Program Files\Microsoft\Web Platform Installer;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files (x86)\WiX Toolset v3.14\bin;C:\Program Files\Microsoft SQL Server\130\DTS\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\Microsoft SQL Server\160\DTS\Binn;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\ProgramData\chocolatey\lib\pulumi\tools\Pulumi\bin;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\GitHub CLI;C:\tools\php;C:\Program Files (x86)\sbt\bin;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\Amazon\SessionManagerPlugin\bin;C:\Program Files\Amazon\AWSSAMCLI\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\LLVM\bin;C:\Users\runneradmin\.dotnet\tools;C:\Users\runneradmin\.cargo\bin;C:\Users\runneradmin\AppData\Local\Microsoft\WindowsApps" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2\\bin\\rustc.exe" "D:\\a\\rust\\rust\\tests\\ui\\amdgpu-require-explicit-cpu.rs" "-Zthreads=1" "-Zsimulate-remapped-rust-src-base=/rustc/FAKE_PREFIX" "-Ztranslate-remapped-path-to-local-path=no" "-Z" "ignore-directory-in-diagnostics-source-blocks=C:\\Users\\runneradmin\\.cargo" "-Z" "ignore-directory-in-diagnostics-source-blocks=D:\\a\\rust\\rust\\vendor" "--sysroot" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2" "--cfg" "cpu" "--check-cfg" "cfg(test,FALSE,nocpu,cpu)" "--error-format" "json" "--json" "future-incompat" "-Ccodegen-units=1" "-Zui-testing" "-Zdeduplicate-diagnostics=no" "-Zwrite-long-types-to-disk=no" "-Cstrip=debuginfo" "--out-dir" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\ui\\amdgpu-require-explicit-cpu.cpu" "-A" "unused" "-A" "internal_features" "-Crpath" "-Cdebuginfo=0" "-Lnative=D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\native\\rust-test-helpers" "--crate-type=cdylib" "--target=amdgcn-amd-amdhsa" "-Ctarget-cpu=gfx900"
+stdout: none
+--- stderr -------------------------------
+error: linking with `rust-lld` failed: exit code: 0xc0000374
+   |
+   = note: "rust-lld" "-flavor" "gnu" "--version-script=C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcl3Me39\\list" "--no-undefined-version" "&lt;1 object files omitted&gt;" "--as-needed" "-L" "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcl3Me39\\raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-L" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\native\\rust-test-helpers" "-o" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\ui\\amdgpu-require-explicit-cpu.cpu\\amdgpu_require_explicit_cpu.elf" "--gc-sections" "-shared" "--strip-debug"
+   = note: some arguments are omitted. use `--verbose` to show all linker arguments
+   = note: 
+
+error: aborting due to 1 previous error
+------------------------------------------
+
+
+
+failures:
+    [ui] tests\ui\amdgpu-require-explicit-cpu.rs#cpu
+
+test result: FAILED. 18506 passed; 1 failed; 293 ignored; 0 measured; 23 filtered out; finished in 1058.55s
+
+Some tests failed in compiletest suite=ui mode=ui host=x86_64-pc-windows-gnu target=x86_64-pc-windows-gnu
+Build completed unsuccessfully in 1:35:19
+make: *** [Makefile:128: ci-mingw-x] Error 1
+  local time: Sat Apr 26 15:57:34 CUT 2025
+  network time: Sat, 26 Apr 2025 15:57:34 GMT
+##[error]Process completed with exit code 2.
+</code></pre>
+            </article> 
+            
+            <article id="job-41204871574" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14681564250/job/41204871574">Auto merge of #140335 - matthiaskrgr:rollup-aa0aqxv, r=matthiaskrgr</a></h3>
+                <p>auto - dist-various-2</p>
+                <p>2025-04-26T13:11:42Z</p>
+                <pre class="log"><code>##[group]Building stage2 library artifacts (x86_64-unknown-linux-gnu -&gt; x86_64-fortanix-unknown-sgx)
+ Downloading crates ...
+  Downloaded fortanix-sgx-abi v0.5.0
+[RUSTC-TIMING] shlex test:false 0.142
+[RUSTC-TIMING] cc test:false 0.873
+   Compiling core v0.0.0 (/checkout/library/core)
+[RUSTC-TIMING] build_script_build test:false 0.381
+[RUSTC-TIMING] build_script_build test:false 0.195
+[RUSTC-TIMING] build_script_build test:false 0.492
+   Compiling libc v0.2.172
+[RUSTC-TIMING] build_script_build test:false 0.159
+   Compiling compiler_builtins v0.1.156
+   Compiling object v0.36.7
+   Compiling std v0.0.0 (/checkout/library/std)
+   Compiling rustc-std-workspace-core v1.99.0 (/checkout/library/rustc-std-workspace-core)
+[RUSTC-TIMING] rustc_std_workspace_core test:false 0.028
+[RUSTC-TIMING] libc test:false 0.044
+   Compiling alloc v0.0.0 (/checkout/library/alloc)
+   Compiling cfg-if v1.0.0
+[RUSTC-TIMING] cfg_if test:false 0.036
+   Compiling unwind v0.0.0 (/checkout/library/unwind)
+[RUSTC-TIMING] unwind test:false 0.057
+   Compiling adler2 v2.0.0
+[RUSTC-TIMING] adler2 test:false 0.144
+   Compiling memchr v2.7.4
+[RUSTC-TIMING] memchr test:false 2.003
+   Compiling dlmalloc v0.2.8
+[RUSTC-TIMING] dlmalloc test:false 0.306
+   Compiling rustc-demangle v0.1.24
+[RUSTC-TIMING] rustc_demangle test:false 1.774
+   Compiling fortanix-sgx-abi v0.5.0
+[RUSTC-TIMING] fortanix_sgx_abi test:false 0.087
+[RUSTC-TIMING] core test:false 24.103
+   Compiling rustc-std-workspace-alloc v1.99.0 (/checkout/library/rustc-std-workspace-alloc)
+[RUSTC-TIMING] rustc_std_workspace_alloc test:false 0.033
+   Compiling gimli v0.31.1
+[RUSTC-TIMING] alloc test:false 6.171
+   Compiling std_detect v0.1.5 (/checkout/library/stdarch/crates/std_detect)
+   Compiling miniz_oxide v0.8.8
+[RUSTC-TIMING] std_detect test:false 0.204
+[RUSTC-TIMING] compiler_builtins test:false 7.957
+   Compiling hashbrown v0.15.2
+[RUSTC-TIMING] miniz_oxide test:false 1.039
+   Compiling panic_unwind v0.0.0 (/checkout/library/panic_unwind)
+[RUSTC-TIMING] panic_unwind test:false 0.118
+   Compiling panic_abort v0.0.0 (/checkout/library/panic_abort)
+[RUSTC-TIMING] panic_abort test:false 0.055
+[RUSTC-TIMING] hashbrown test:false 1.229
+   Compiling addr2line v0.24.2
+[RUSTC-TIMING] addr2line test:false 0.455
+[RUSTC-TIMING] gimli test:false 4.748
+[RUSTC-TIMING] object test:false 5.637
+warning: dropping unsupported crate type `dylib` for target `x86_64-fortanix-unknown-sgx`
+
+error: implicit autoref creates a reference to the dereference of a raw pointer
+   --&gt; library/std/src/sys/pal/sgx/abi/usercalls/alloc.rs:678:18
+    |
+678 |         unsafe { (*self.0.get()).len() }
+    |                  ^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: creating a reference requires the pointer target to be valid and imposes aliasing requirements
+    = note: `-D dangerous-implicit-autorefs` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(dangerous_implicit_autorefs)]`
+help: try using a raw pointer method instead; or if this reference is intentional, make it explicit
+    |
+678 |         unsafe { (&amp;(*self.0.get())).len() }
+    |                  ++               +
+
+[RUSTC-TIMING] std test:false 2.768
+warning: `std` (lib) generated 1 warning
+error: could not compile `std` (lib) due to 1 previous error; 1 warning emitted
+Build completed unsuccessfully in 0:46:20
+  local time: Sat Apr 26 14:09:00 UTC 2025
+  network time: Sat, 26 Apr 2025 14:09:00 GMT
+##[error]Process completed with exit code 1.
+</code></pre>
+            </article> 
+            
+            <article id="job-41203075942" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14680733027/job/41203075942">Auto merge of #140269 - cuviper:beta-next, r=cuviper</a></h3>
+                <p>auto - x86_64-mingw-1</p>
+                <p>2025-04-26T11:21:44Z</p>
+                <pre class="log"><code>
+failures:
+
+---- [assembly] tests\assembly\targets\targets-pe.rs#i686_pc_windows_gnu stdout ----
+
+error in revision `i686_pc_windows_gnu`: auxiliary build of "D:\\a\\rust\\rust\\tests\\auxiliary\\minicore.rs" failed to compile: 
+status: exit code: 1
+command: PATH="D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage2\bin;D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage0-bootstrap-tools\x86_64-pc-windows-gnu\release\deps;D:\a\rust\rust\build\x86_64-pc-windows-gnu\stage0\bin;D:\a\rust\rust\ninja;D:\a\rust\rust\mingw64\bin;C:\msys64\usr\bin;D:\a\rust\rust\sccache;C:\Program Files\MongoDB\Server\5.0\bin;C:\aliyun-cli;C:\vcpkg;C:\Program Files (x86)\NSIS;C:\tools\zstd;C:\Program Files\Mercurial;C:\hostedtoolcache\windows\stack\3.5.1\x64;C:\cabal\bin;C:\ghcup\bin;C:\mingw64\bin;C:\Program Files\dotnet;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\R\R-4.4.2\bin\x64;C:\SeleniumWebDrivers\GeckoDriver;C:\SeleniumWebDrivers\EdgeDriver;C:\SeleniumWebDrivers\ChromeDriver;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\GitHub CLI;C:\Program Files\Git\bin;C:\Program Files (x86)\pipx_bin;C:\npm\prefix;C:\hostedtoolcache\windows\go\1.21.13\x64\bin;C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts;C:\hostedtoolcache\windows\Python\3.9.13\x64;C:\hostedtoolcache\windows\Ruby\3.0.7\x64\bin;C:\Program Files\OpenSSL\bin;C:\tools\kotlinc\bin;C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.452-9\x64\bin;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\kind;C:\ProgramData\Chocolatey\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\PowerShell\7;C:\Program Files\Microsoft\Web Platform Installer;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files (x86)\WiX Toolset v3.14\bin;C:\Program Files\Microsoft SQL Server\130\DTS\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\Microsoft SQL Server\160\DTS\Binn;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\ProgramData\chocolatey\lib\pulumi\tools\Pulumi\bin;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\GitHub CLI;C:\tools\php;C:\Program Files (x86)\sbt\bin;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\Amazon\SessionManagerPlugin\bin;C:\Program Files\Amazon\AWSSAMCLI\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\LLVM\bin;C:\Users\runneradmin\.dotnet\tools;C:\Users\runneradmin\.cargo\bin;C:\Users\runneradmin\AppData\Local\Microsoft\WindowsApps" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2\\bin\\rustc.exe" "D:\\a\\rust\\rust\\tests\\auxiliary\\minicore.rs" "-Zthreads=1" "-Zsimulate-remapped-rust-src-base=/rustc/FAKE_PREFIX" "-Ztranslate-remapped-path-to-local-path=no" "-Z" "ignore-directory-in-diagnostics-source-blocks=C:\\Users\\runneradmin\\.cargo" "-Z" "ignore-directory-in-diagnostics-source-blocks=D:\\a\\rust\\rust\\vendor" "--sysroot" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\stage2" "--cfg" "i686_pc_windows_gnu" "--check-cfg" "cfg(test,FALSE,aarch64_pc_windows_msvc,aarch64_pc_windows_gnullvm,aarch64_unknown_uefi,aarch64_uwp_windows_msvc,arm64ec_pc_windows_msvc,avr_none,bpfeb_unknown_none,bpfel_unknown_none,i686_pc_windows_gnu,i686_pc_windows_msvc,i686_pc_windows_gnullvm,i686_uwp_windows_gnu,i686_win7_windows_gnu,i686_unknown_uefi,i686_uwp_windows_msvc,i686_win7_windows_msvc,powerpc64_ibm_aix,thumbv7a_uwp_windows_msvc,thumbv7a_pc_windows_msvc,x86_64_pc_windows_gnu,x86_64_pc_windows_gnullvm,x86_64_pc_windows_msvc,x86_64_unknown_uefi,x86_64_uwp_windows_gnu,x86_64_win7_windows_gnu,x86_64_uwp_windows_msvc,x86_64_win7_windows_msvc,x86_64_pc_cygwin)" "-O" "-Cdebug-assertions=no" "-C" "prefer-dynamic" "-o" "D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\test\\assembly\\targets\\targets-pe.i686_pc_windows_gnu\\libminicore.rlib" "-A" "unused" "-A" "internal_features" "-Crpath" "-Cdebuginfo=0" "-Lnative=D:\\a\\rust\\rust\\build\\x86_64-pc-windows-gnu\\native\\rust-test-helpers" "--target" "i686-pc-windows-gnu" "-Cpanic=abort" "--crate-type" "rlib" "-Cpanic=abort"
+stdout: none
+--- stderr -------------------------------
+error: couldn't create a temp dir: Access is denied. (os error 5) at path "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcUofZrm"
+
+error: aborting due to 1 previous error
+------------------------------------------
+
+
+
+failures:
+    [assembly] tests\assembly\targets\targets-pe.rs#i686_pc_windows_gnu
+
+test result: FAILED. 494 passed; 1 failed; 42 ignored; 0 measured; 0 filtered out; finished in 23.78s
+
+Some tests failed in compiletest suite=assembly mode=assembly host=x86_64-pc-windows-gnu target=x86_64-pc-windows-gnu
+Build completed unsuccessfully in 1:37:07
+make: *** [Makefile:128: ci-mingw-x] Error 1
+  local time: Sat Apr 26 13:08:42 CUT 2025
+  network time: Sat, 26 Apr 2025 13:08:42 GMT
+##[error]Process completed with exit code 2.
+</code></pre>
+            </article> 
+            
+            <article id="job-41202217285" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14680328728/job/41202217285">Auto merge of #140329 - matthiaskrgr:rollup-9itify0, r=matthiaskrgr</a></h3>
+                <p>auto - test-various</p>
+                <p>2025-04-26T10:25:23Z</p>
+                <pre class="log"><code>
+failures:
+
+---- [ui] tests/ui/asm/normalizable-asm-ty.rs#next stdout ----
+
+error in revision `next`: test compilation failed although it shouldn't!
+status: exit status: 1
+command: env -u RUSTC_LOG_COLOR RUSTC_ICE="0" RUST_BACKTRACE="short" "/checkout/obj/build/x86_64-unknown-linux-gnu/stage2/bin/rustc" "/checkout/tests/ui/asm/normalizable-asm-ty.rs" "-Zthreads=1" "-Zsimulate-remapped-rust-src-base=/rustc/FAKE_PREFIX" "-Ztranslate-remapped-path-to-local-path=no" "-Z" "ignore-directory-in-diagnostics-source-blocks=/cargo" "-Z" "ignore-directory-in-diagnostics-source-blocks=/checkout/vendor" "--sysroot" "/checkout/obj/build/x86_64-unknown-linux-gnu/stage2" "--target=wasm32-wasip1" "--cfg" "next" "--check-cfg" "cfg(test,FALSE,current,next)" "--error-format" "json" "--json" "future-incompat" "-Ccodegen-units=1" "-Zui-testing" "-Zdeduplicate-diagnostics=no" "-Zwrite-long-types-to-disk=no" "-Cstrip=debuginfo" "--emit" "metadata" "-C" "prefer-dynamic" "--out-dir" "/checkout/obj/build/x86_64-unknown-linux-gnu/test/ui/asm/normalizable-asm-ty.next" "-A" "unused" "-A" "internal_features" "-Crpath" "-Cdebuginfo=0" "-Lnative=/checkout/obj/build/wasm32-wasip1/native/rust-test-helpers" "-Znext-solver"
+stdout: none
+--- stderr -------------------------------
+error[E0658]: inline assembly is not stable yet on this architecture
+##[error]  --&gt; /checkout/tests/ui/asm/normalizable-asm-ty.rs:8:9
+   |
+LL | /         std::arch::asm!(
+LL | |             "/* {} */",
+LL | |             in(reg) pc_section[0]
+LL | |         );
+   | |_________^
+   |
+   = note: see issue #93335 &lt;https://github.com/rust-lang/rust/issues/93335&gt; for more information
+   = help: add `#![feature(asm_experimental_arch)]` to the crate attributes to enable
+   = note: this compiler was built on YYYY-MM-DD; consider upgrading it if it is out of date
+
+error: invalid register class `reg`: unknown register class
+##[error]  --&gt; /checkout/tests/ui/asm/normalizable-asm-ty.rs:10:13
+   |
+LL |             in(reg) pc_section[0]
+   |             ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: the following register classes are supported on this target: `local`
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0658`.
+------------------------------------------
+
+
+---- [ui] tests/ui/asm/normalizable-asm-ty.rs#current stdout ----
+
+error in revision `current`: test compilation failed although it shouldn't!
+status: exit status: 1
+command: env -u RUSTC_LOG_COLOR RUSTC_ICE="0" RUST_BACKTRACE="short" "/checkout/obj/build/x86_64-unknown-linux-gnu/stage2/bin/rustc" "/checkout/tests/ui/asm/normalizable-asm-ty.rs" "-Zthreads=1" "-Zsimulate-remapped-rust-src-base=/rustc/FAKE_PREFIX" "-Ztranslate-remapped-path-to-local-path=no" "-Z" "ignore-directory-in-diagnostics-source-blocks=/cargo" "-Z" "ignore-directory-in-diagnostics-source-blocks=/checkout/vendor" "--sysroot" "/checkout/obj/build/x86_64-unknown-linux-gnu/stage2" "--target=wasm32-wasip1" "--cfg" "current" "--check-cfg" "cfg(test,FALSE,current,next)" "--error-format" "json" "--json" "future-incompat" "-Ccodegen-units=1" "-Zui-testing" "-Zdeduplicate-diagnostics=no" "-Zwrite-long-types-to-disk=no" "-Cstrip=debuginfo" "--emit" "metadata" "-C" "prefer-dynamic" "--out-dir" "/checkout/obj/build/x86_64-unknown-linux-gnu/test/ui/asm/normalizable-asm-ty.current" "-A" "unused" "-A" "internal_features" "-Crpath" "-Cdebuginfo=0" "-Lnative=/checkout/obj/build/wasm32-wasip1/native/rust-test-helpers"
+stdout: none
+--- stderr -------------------------------
+error[E0658]: inline assembly is not stable yet on this architecture
+##[error]  --&gt; /checkout/tests/ui/asm/normalizable-asm-ty.rs:8:9
+   |
+LL | /         std::arch::asm!(
+LL | |             "/* {} */",
+LL | |             in(reg) pc_section[0]
+LL | |         );
+   | |_________^
+   |
+   = note: see issue #93335 &lt;https://github.com/rust-lang/rust/issues/93335&gt; for more information
+   = help: add `#![feature(asm_experimental_arch)]` to the crate attributes to enable
+   = note: this compiler was built on YYYY-MM-DD; consider upgrading it if it is out of date
+
+error: invalid register class `reg`: unknown register class
+##[error]  --&gt; /checkout/tests/ui/asm/normalizable-asm-ty.rs:10:13
+   |
+LL |             in(reg) pc_section[0]
+   |             ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: the following register classes are supported on this target: `local`
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0658`.
+------------------------------------------
+
+
+
+failures:
+    [ui] tests/ui/asm/normalizable-asm-ty.rs#next
+    [ui] tests/ui/asm/normalizable-asm-ty.rs#current
+
+test result: FAILED. 18122 passed; 2 failed; 846 ignored; 0 measured; 0 filtered out; finished in 444.66s
+
+Some tests failed in compiletest suite=ui mode=ui host=x86_64-unknown-linux-gnu target=wasm32-wasip1
+Build completed unsuccessfully in 0:42:41
+  local time: Sat Apr 26 11:18:36 UTC 2025
+  network time: Sat, 26 Apr 2025 11:18:36 GMT
+##[error]Process completed with exit code 1.
+</code></pre>
+            </article> 
+            
+            <article id="job-41200336371" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14679479623/job/41200336371">Auto merge of #140269 - cuviper:beta-next, r=cuviper</a></h3>
+                <p>auto - i686-msvc-1</p>
+                <p>2025-04-26T08:29:26Z</p>
+                <pre class="log"><code>
+failures:
+
+---- [codegen] tests\codegen\sanitizer\kcfi\emit-kcfi-operand-bundle-itanium-cxx-abi.rs#aarch64 stdout ----
+
+error in revision `aarch64`: auxiliary build of "D:\\a\\rust\\rust\\tests\\auxiliary\\minicore.rs" failed to compile: 
+status: exit code: 1
+command: PATH="D:\a\rust\rust\build\i686-pc-windows-msvc\stage2\bin;C:\Program Files (x86)\Windows Kits\10\bin\x64;C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x86;D:\a\rust\rust\build\i686-pc-windows-msvc\stage0-bootstrap-tools\i686-pc-windows-msvc\release\deps;D:\a\rust\rust\build\i686-pc-windows-msvc\stage0\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\runneradmin\bin;D:\a\rust\rust\ninja;D:\a\rust\rust\sccache;C:\Program Files\MongoDB\Server\5.0\bin;C:\aliyun-cli;C:\vcpkg;C:\Program Files (x86)\NSIS;C:\tools\zstd;C:\Program Files\Mercurial;C:\hostedtoolcache\windows\stack\3.5.1\x64;C:\cabal\bin;C:\ghcup\bin;C:\mingw64\bin;C:\Program Files\dotnet;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\R\R-4.4.2\bin\x64;C:\SeleniumWebDrivers\GeckoDriver;C:\SeleniumWebDrivers\EdgeDriver;C:\SeleniumWebDrivers\ChromeDriver;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\GitHub CLI;C:\Program Files\Git\usr\bin;C:\Program Files (x86)\pipx_bin;C:\npm\prefix;C:\hostedtoolcache\windows\go\1.21.13\x64\bin;C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts;C:\hostedtoolcache\windows\Python\3.9.13\x64;C:\hostedtoolcache\windows\Ruby\3.0.7\x64\bin;C:\Program Files\OpenSSL\bin;C:\tools\kotlinc\bin;C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.452-9\x64\bin;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\kind;C:\ProgramData\Chocolatey\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\PowerShell\7;C:\Program Files\Microsoft\Web Platform Installer;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files (x86)\WiX Toolset v3.14\bin;C:\Program Files\Microsoft SQL Server\130\DTS\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Program Files\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\Microsoft SQL Server\160\DTS\Binn;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\ProgramData\chocolatey\lib\pulumi\tools\Pulumi\bin;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin;C:\Program Files\Microsoft Service Fabric\bin\Fabric\Fabric.Code;C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\GitHub CLI;C:\tools\php;C:\Program Files (x86)\sbt\bin;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\Amazon\SessionManagerPlugin\bin;C:\Program Files\Amazon\AWSSAMCLI\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\LLVM\bin;C:\Users\runneradmin\.dotnet\tools;C:\Users\runneradmin\.cargo\bin;C:\Users\runneradmin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x86" "D:\\a\\rust\\rust\\build\\i686-pc-windows-msvc\\stage2\\bin\\rustc.exe" "D:\\a\\rust\\rust\\tests\\auxiliary\\minicore.rs" "-Zthreads=1" "-Zsimulate-remapped-rust-src-base=/rustc/FAKE_PREFIX" "-Ztranslate-remapped-path-to-local-path=no" "-Z" "ignore-directory-in-diagnostics-source-blocks=C:\\Users\\runneradmin\\.cargo" "-Z" "ignore-directory-in-diagnostics-source-blocks=D:\\a\\rust\\rust\\vendor" "--sysroot" "D:\\a\\rust\\rust\\build\\i686-pc-windows-msvc\\stage2" "--cfg" "aarch64" "--check-cfg" "cfg(test,FALSE,aarch64,x86_64)" "-O" "-Cdebug-assertions=no" "-C" "prefer-dynamic" "-o" "D:\\a\\rust\\rust\\build\\i686-pc-windows-msvc\\test\\codegen\\sanitizer\\kcfi\\emit-kcfi-operand-bundle-itanium-cxx-abi.aarch64\\libminicore.rlib" "-A" "unused" "-A" "internal_features" "-Crpath" "-Cdebuginfo=0" "-Lnative=D:\\a\\rust\\rust\\build\\i686-pc-windows-msvc\\native\\rust-test-helpers" "--target" "aarch64-unknown-none" "-Cno-prepopulate-passes" "-Zsanitizer=kcfi" "-Copt-level=0" "-Cpanic=abort" "--crate-type" "rlib" "-Cpanic=abort"
+stdout: none
+--- stderr -------------------------------
+error: couldn't create a temp dir: Access is denied. (os error 5) at path "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rustcsqlo2E"
+
+error: aborting due to 1 previous error
+------------------------------------------
+
+
+
+failures:
+    [codegen] tests\codegen\sanitizer\kcfi\emit-kcfi-operand-bundle-itanium-cxx-abi.rs#aarch64
+
+test result: FAILED. 624 passed; 1 failed; 214 ignored; 0 measured; 3 filtered out; finished in 24.64s
+
+Some tests failed in compiletest suite=codegen mode=codegen host=i686-pc-windows-msvc target=i686-pc-windows-msvc
+Build completed unsuccessfully in 1:43:04
+make: *** [Makefile:113: ci-msvc-py] Error 1
+  local time: Sat Apr 26 10:22:15 CUT 2025
+  network time: Sat, 26 Apr 2025 10:22:15 GMT
+##[error]Process completed with exit code 2.
+</code></pre>
+            </article> 
+            
+            <article id="job-41192621473" class="failure">
+                <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14676137753/job/41192621473">Auto merge of #140315 - matthiaskrgr:rollup-tmb35n8, r=matthiaskrgr</a></h3>
+                <p>auto - x86_64-gnu-aux</p>
+                <p>2025-04-26T01:12:18Z</p>
+                <pre class="log"><code>
+failures:
+
+---- diesel/src/expression/functions/aggregate_folding.rs - expression::functions::aggregate_folding::avg (line 30) stdout ----
+error: expected one of `async`, `|`, or `||`, found `diesel`
+##[error] --&gt; diesel/src/expression/functions/../../doctest_setup.rs:1:5
+  |
+1 | use diesel::prelude::*;
+  |     ^^^^^^ expected one of `async`, `|`, or `||`
+
+error: non-statement macro in statement position: include
+##[error] --&gt; diesel/src/expression/functions/aggregate_folding.rs:35:1
+  |
+8 | include!("../../doctest_setup.rs");
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `table` in this scope
+##[error]  --&gt; diesel/src/expression/functions/aggregate_folding.rs:42:1
+   |
+15 | table! {
+   | ^^^^^
+   |
+help: consider importing this macro
+   |
+3  + use diesel::table;
+   |
+
+error[E0412]: cannot find type `QueryResult` in this scope
+##[error]  --&gt; diesel/src/expression/functions/aggregate_folding.rs:65:18
+   |
+38 | fn run_test() -&gt; QueryResult&lt;()&gt; {
+   |                  ^^^^^^^^^^^ not found in this scope
+   |
+help: consider importing this type alias
+   |
+3  + use diesel::QueryResult;
+   |
+
+error[E0658]: ergonomic clones are experimental
+##[error] --&gt; diesel/src/expression/functions/../../doctest_setup.rs:1:1
+  |
+1 | use diesel::prelude::*;
+  | ^^^
+  |
+  = note: see issue #132290 &lt;https://github.com/rust-lang/rust/issues/132290&gt; for more information
+  = help: add `#![feature(ergonomic_clones)]` to the crate attributes to enable
+  = note: this compiler was built on 2025-04-26; consider upgrading it if it is out of date
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0412, E0658.
+For more information about an error, try `rustc --explain E0412`.
+Couldn't compile the test.
+
+failures:
+    diesel/src/expression/functions/aggregate_folding.rs - expression::functions::aggregate_folding::avg (line 30)
+
+test result: FAILED. 123 passed; 1 failed; 16 ignored; 0 measured; 0 filtered out; finished in 17.93s
+
+error: doctest failed, to rerun pass `--doc`
+
+thread 'main' panicked at src/tools/cargotest/main.rs:123:9:
+tests failed for https://github.com/diesel-rs/diesel
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Command has failed. Rerun with -v to see more details.
+Build completed unsuccessfully in 0:42:48
+make: *** [Makefile:51: check-aux] Error 1
+  local time: Sat Apr 26 02:01:57 UTC 2025
+  network time: Sat, 26 Apr 2025 02:01:58 GMT
+##[error]Process completed with exit code 2.
+</code></pre>
+            </article> 
+            
             <article id="job-41133041324" class="failure">
                 <h3><a href="https://github.com/rust-lang-ci/rust/actions/runs/14656720812/job/41133041324">Auto merge of #140273 - matthiaskrgr:rollup-rxmuvkg, r=matthiaskrgr</a></h3>
                 <p>auto - i686-msvc-1</p>
