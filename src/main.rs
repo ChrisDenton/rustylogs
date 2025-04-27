@@ -403,7 +403,7 @@ fn tail_lines(log: &str, lines: usize) -> &str {
 
 fn error_line(log: &str) -> Option<&str> {
     for line in log.lines() {
-        if line.starts_with("error: ") {
+        if line.starts_with("error: ") || line.starts_with("error[") {
             return Some(line);
         }
     }
