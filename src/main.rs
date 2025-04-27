@@ -522,6 +522,7 @@ fn make_html(fails: &Fails) -> String {
     let mut summary = String::from(
         "<section id = \"summary\">
         <h2>Summary</h2>
+        <form id=\"filter\"><input placeholder=\"filter summary by log text\" type=\"search\"><input type=\"submit\" value=\"Filter\"></form>
         <table><thead><tr><th>Time (UTC)</th><th>PR</th><th>Job Name</th><th>Short Log</th><th>Error Message</th></tr></thead>
         <tbody>
         ",
@@ -544,7 +545,7 @@ fn make_html(fails: &Fails) -> String {
         let error_line = error_line.as_deref().unwrap_or("");
         summary.push_str(&format!(
             "
-            <tr>
+            <tr data-job-id=\"{job_id}\">
             <td>{time}</td>
             <td><a href=\"https://github.com/rust-lang/rust/pull/{pr_id}\">#{pr_id}</a></td>
             <td>{job_name}</td>
@@ -570,7 +571,7 @@ fn make_html(fails: &Fails) -> String {
     html.push_str(&logs);
 
     html.push_str(
-        r#"
+        r##"
         <script src="script.js"></script>
         <style>
         .log { overflow: auto; border: 1px solid black; padding: 1em; background-color: #eee; }
@@ -578,12 +579,39 @@ fn make_html(fails: &Fails) -> String {
         thead tr { border-bottom: 2px solid white; }
         th { position: sticky; top: 0; background-color: white; }
         td { border: 2px solid white; padding: 5px; }
+        td:nth-child(3)  {white-space: nowrap;}
         tr:nth-child(even) { background: #eee; }
         .error_msg { font-size: 12px; }
         .error_msg pre { white-space: pre-wrap; word-wrap: break-word; }
+        #filter { display: flex; }
+        #filter input[type=search] { flex-grow: 1; }
         </style>
+        <script>
+        document.querySelector("#filter").addEventListener("submit", event => {
+            event.preventDefault();
+            const search = event.target.querySelector("input[type=\"search\"]").value;
+            let count = 0;
+            let hidden = 0;
+            document.querySelectorAll("#summary tbody tr").forEach(tr => {
+                const job_id = tr.dataset.jobId;
+                if (document.querySelector(`#job-${job_id} code`).textContent.includes(search)) {
+                    tr.removeAttribute("style");
+                    count += 1;
+                } else {
+                    tr.style.display = "none";
+                    hidden += 1;
+                }
+            });
+            const title = document.querySelector("#summary h2");
+            if (hidden == 0) {
+                title.textContent = "Summary";
+            } else {
+                title.textContent = `Summary (showing ${count} results)`
+            }
+        });
+        </script>
         </html>
-        "#,
+        "##,
     );
     html
 }
