@@ -506,7 +506,7 @@ fn make_html(fails: &Fails) -> String {
             <td>{time}</td>
             <td><a href=\"https://github.com/rust-lang/rust/pull/{pr_id}\">#{pr_id}</a></td>
             <td>{job_name}</td>
-            <td><a href=\"#job-{job_id}\">short log</a></td>
+            <td><a href=\"#job-{job_id}\">log</a></td>
             <td class=\"error_msg\"><pre><code>{error_line}</code></pre></td>
             </tr>
             ",
