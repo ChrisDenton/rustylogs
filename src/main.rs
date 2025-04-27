@@ -595,6 +595,11 @@ fn make_html(fails: &Fails) -> String {
                 const job_id = tr.dataset.jobId;
                 if (document.querySelector(`#job-${job_id} code`).textContent.includes(search)) {
                     tr.removeAttribute("style");
+                    if (count % 2 == 0) {
+                        tr.style["background-color"] = "white";
+                    } else {
+                        tr.style["background-color"] = "#eee";
+                    }
                     count += 1;
                 } else {
                     tr.style.display = "none";
